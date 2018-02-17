@@ -2,7 +2,7 @@ package com.github.flurescein.tee
 
 import java.io.File
 
-enum class Flags(val flag: String) {
+private enum class Flags(val flag: String) {
     APPENDS_TO_THE_END("-a"),
     IGNORE_INTERRUPTS("-i")
 }
@@ -15,7 +15,7 @@ fun main(args: Array<String>) {
     writeToFiles(input, files, flags)
 }
 
-private fun parseArguments(arguments: Array<String>): Pair<List<String>, List<String>> =
+private fun parseArguments(arguments: Array<String>) =
         arguments.partition { Regex("-[a-zA-Z]").matches(it) }
 
 private fun writeToFiles(input: String?, files: List<String>, flags: List<String>) {
